@@ -18,9 +18,7 @@ const colors = {
   normal: '#F5F5F5',
 }
 
-
 const main_types = Object.keys(colors);
-
 
 const fetchPokemons = async () => {
   for (let i = 1; i <= pokemons_number; i++) {
@@ -28,15 +26,12 @@ const fetchPokemons = async () => {
   }
 }
 
-
 const getPokemon = async (id) => {
   const URL_POKEMON = `https://pokeapi.co/api/v2/pokemon/${id}`
   const res = await fetch(URL_POKEMON);
   const pokemon = await res.json();
 
   createPokemonCard(pokemon);
-
-  //  return pokemon;
 }
 
 fetchPokemons();
@@ -57,7 +52,9 @@ function createPokemonCard(pokemon) {
 
   const pokeInnerHTML = `
     <div class="img-container"> 
-      <img src="${pokemon.sprites.front_default}" alt="${name}"> 
+    <!--<img src="${pokemon.sprites.front_default}" alt="${name}"> -->
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" alt="${name}"> 
+
     </div>
 
     <div class="info">
